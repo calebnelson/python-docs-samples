@@ -13,14 +13,21 @@
 # limitations under the License.
 
 import webapp2
-
+from aiapi import AiRequest, AiResponse
+from aiscore import AiScore
+from ailookahead import AiLookahead
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        self.response.write('Hello, World!')
+	input_dict = {}
+	for key in ['board', 'score', 'gid', 'ai', 'arg']:
+		input_dict[key] = self.request.get(key)
+	aireq = AiRequest(input_dict)
+        self.response.write(str(aireq))
+	self.response.write(str(AiLookahead(aireq)))
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
+    ('/ai', MainPage),
 ], debug=True)

@@ -3,13 +3,6 @@ api_version: 1
 threadsafe: false
 
 handlers:
-- url: /
-  static_files: 2048web/index.html
-  upload: 2048web/index.html
-
-- url: /ai
-  script: main.app
-
 - url: /index\.html
   static_files: 2048web/index.html
   upload: 2048web/index.html
@@ -17,6 +10,16 @@ handlers:
 - url: /game.htm
   static_files: 2048web/game.htm
   upload: 2048web/game.htm
+
+- url: /ai/.*
+  script: main.app
+
+#- url: /ai/.*/
+#  script: main.app
+
+- url: /
+  static_files: 2048web/index.html
+  upload: 2048web/index.html
 
 - url: /(.*)
   static_files: 2048web/\1
