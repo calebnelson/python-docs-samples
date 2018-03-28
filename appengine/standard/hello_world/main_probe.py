@@ -43,5 +43,5 @@ class MainPage(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/ai', MainPage),
+    ('/ai/ai.py', MainPage),
 ], debug=True)

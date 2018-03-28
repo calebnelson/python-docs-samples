@@ -7,6 +7,9 @@ handlers:
   static_files: 2048web/index.html
   upload: 2048web/index.html
 
+- url: /ai/ai.py
+  script: main_probe.app
+
 - url: /ai
   script: main.app
 
